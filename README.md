@@ -54,7 +54,7 @@
                "event_id": Integer,
                "tickets_amount": Integer,
                "sum": Integer,
-               "expires": "yyyy-mm-dd hh:mm:ss"
+               "expires_at": "yyyy-mm-dd hh:mm:ss"
            }
       }
 }
@@ -139,6 +139,7 @@
   - closed
 - event
 - amount of tickets ordered
+- expires_at
 
 Reserves tickets:
 - for 15 minutes,

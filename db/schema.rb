@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_105534) do
+ActiveRecord::Schema.define(version: 2019_10_10_160422) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_105534) do
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "expires_at", precision: 6, null: false
     t.index ["event_id"], name: "index_orders_on_event_id"
   end
 
