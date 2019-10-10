@@ -2,6 +2,10 @@
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
+
+# https://github.com/DatabaseCleaner/database_cleaner
+require 'database_cleaner'
+
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
@@ -59,7 +63,21 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # Adds factory_bot 
+  # Adds factory_bot
   # https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md
   config.include FactoryBot::Syntax::Methods
+
+  # https://github.com/DatabaseCleaner/database_cleaner#how-to-use
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(
+      :truncation,
+      except: %w(ar_internal_metadata) # https://stackoverflow.com/a/38209363/2936673
+    )
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end

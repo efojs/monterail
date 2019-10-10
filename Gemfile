@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :test do
   # https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md
   gem "factory_bot_rails"
+  gem 'database_cleaner'
 end
 
 group :development, :test do
