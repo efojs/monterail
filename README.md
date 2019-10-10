@@ -10,8 +10,8 @@
               "id": Integer,
               "attributes": {
                   "name": String,
-                  "date": "yyyy-mm-dd hh:mm:ss",
-                  "duration": Integer,
+                  "start_at": "yyyy-mm-dd hh:mm:ss",
+                  "end_at": "yyyy-mm-dd hh:mm:ss",
                   "tickets_total": Integer,
                   "tickets_sold": Integer,
                   "ticket_price": Float
@@ -27,8 +27,8 @@
               "id": Integer,
               "attributes": {
                   "name": String,
-                  "date": "yyyy-mm-dd hh:mm:ss",
-                  "duration": Integer,
+                  "start_at": "yyyy-mm-dd hh:mm:ss",
+                  "end_at": "yyyy-mm-dd hh:mm:ss",
                   "tickets_total": Integer,
                   "tickets_sold": Integer,
                   "ticket_price": Float
@@ -127,8 +127,8 @@
 ## Models
 ### Event
 - name
-- date and time
-- duration in seconds
+- start date and time
+- end date and time
 - tickets total
 - tickets sold
 - ticket price
