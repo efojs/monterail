@@ -167,6 +167,18 @@ RSpec.describe "Events API", type: :request do
           expect(response.body).to match(/Requested amount of tickets \(#{@tickets_to_buy}\) not available. Only #{10} left/)
         end
       end
+      context 'event if over' do
+        before(:each) do
+          @event = build(:event)
+          @event.end_at = Time.now
+          @event.save
+          post "/api/v1/events/#{@event.id}/book/#{1}"
+        end
+        it 'responds with 500' do
+          expect(response).to have_http_status(500)
+          expect(response.body).to match(/Event is already over/)
+        end
+      end
     end
 
     context '/pay' do

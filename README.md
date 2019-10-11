@@ -99,6 +99,7 @@
 {
         [
             "Requested amount of tickets ([Integer]) not available. Only [Integer] left."
+            / "Event is already over"
         ]
 }
 ```
