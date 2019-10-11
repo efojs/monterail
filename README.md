@@ -144,11 +144,8 @@
 - expires_at  
 
 
-**Reserves tickets:**
-  - for 15 minutes,
-  - or until the end of event, if less than 15 minutes left
-    - show message that the event will end in X minutes
-    - UI shows countdown to expiration time, when time expires form is disabled with message "Time is out, please book tickets again"
+**Reserves tickets for 15 minutes**  
+UI shows countdown to expiration time, when time expires form is disabled with message "Time is out, please book tickets again"
 
 **Increases amount of sold tickets in the event**  
 **Deleted after expiration (decreases number of sold tickets), if not closed**  
