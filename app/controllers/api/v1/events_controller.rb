@@ -12,6 +12,7 @@ class Api::V1::EventsController < ApplicationController
   def book
     order = Order.new(event_id: params[:id], tickets_amount: params[:amount])
     if order.save
+      OrdersCleanupJob.set(wait_until: order.expires_at).perform_later(order)
       render json: order.to_json
     else
       render json: order.errors.full_messages.to_json, status: 500
